@@ -27,11 +27,13 @@ class _GoogleBooksPageState extends State<GoogleBooksPage> {
       _isLoading = true;
     });
 
-    final response = await http.get(
-      Uri.parse(
-        'https://www.googleapis.com/books/v1/volumes?q=${_controller.text}',
-      ),
+    final uri = Uri.https(
+        'www.googleapis.com',
+        '/books/v1/volumes',
+        {'q': _controller.text},
     );
+
+    final response = await http.get(uri);
 
     if (response.statusCode == 200) {
       final data = json.decode(response.body) as Map<String, dynamic>;
