@@ -1,4 +1,4 @@
-package com.example.layout_forms_example
+package com.example.layout_example
 
 import io.flutter.embedding.android.FlutterActivity
 

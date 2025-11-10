@@ -8,7 +8,10 @@ class OriginalExamplePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Layouts with Row and Column')),
+      appBar: AppBar(
+        title: const Text('Layouts with Row and Column'),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -35,10 +38,20 @@ class OriginalExamplePage extends StatelessWidget {
             const SizedBox(height: 32),
             ElevatedButton.icon(
               onPressed: () {
-                unawaited(Navigator.pushNamed(context, '/more-widget-examples'));
+                unawaited(
+                  Navigator.pushNamed(context, '/more-widget-examples'),
+                );
               },
               label: const Text('More Widget Examples'),
               icon: const Icon(Icons.arrow_forward),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton.icon(
+              onPressed: () {
+                unawaited(Navigator.pushNamed(context, '/google-books'));
+              },
+              label: const Text('Google Books API Example'),
+              icon: const Icon(Icons.book),
             ),
           ],
         ),

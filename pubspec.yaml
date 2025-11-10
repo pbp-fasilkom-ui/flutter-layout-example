@@ -3,7 +3,7 @@ name: layout_example
 description: "A Flutter project example to provide examples about layout in Flutter."
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.0+1
+version: 1.0.1+1
 
 environment:
   sdk: ^3.9.2
@@ -13,13 +13,17 @@ dependencies:
 
   flutter:
     sdk: flutter
+  http: ^1.5.0
+  json_annotation: ^4.9.0
 
 dev_dependencies:
+  build_runner: ^2.10.1
   flutter_lints: ^5.0.0
 
   flutter_test:
     sdk: flutter
 
+  json_serializable: ^6.11.1
   very_good_analysis: ^10.0.0
 
 flutter:

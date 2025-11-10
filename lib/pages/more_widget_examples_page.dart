@@ -13,13 +13,22 @@ class MoreWidgetExamplesPage extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: const <Widget>[
-          ExampleSection(title: '1. Container', child: ContainerExample()),
+          ExampleSection(
+            title: '1. Container',
+            child: ContainerExample(),
+          ),
           ExampleSection(
             title: '2. Expanded & Flexible',
             child: ExpandedFlexibleExample(),
           ),
-          ExampleSection(title: '3. Stack', child: StackExample()),
-          ExampleSection(title: '4. GridView', child: GridViewExample()),
+          ExampleSection(
+            title: '3. Stack',
+            child: StackExample(),
+          ),
+          ExampleSection(
+            title: '4. GridView',
+            child: GridViewExample(),
+          ),
         ],
       ),
     );
@@ -27,7 +36,6 @@ class MoreWidgetExamplesPage extends StatelessWidget {
 }
 
 class ExampleSection extends StatelessWidget {
-
   const ExampleSection({required this.title, required this.child, super.key});
   final String title;
   final Widget child;
@@ -67,7 +75,7 @@ class ContainerExample extends StatelessWidget {
         border: Border.all(color: Colors.amber.shade600, width: 2),
       ),
       child: const Text(
-        // It's a literal string for demo.
+        // Literal string for demo
         // ignore: lines_longer_than_80_chars
         'This is a Container widget. It has margin, padding, and a coloured border.',
         textAlign: TextAlign.center,
