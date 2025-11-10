@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:layout_example/pages/chatbot_page.dart';
+import 'package:layout_example/models/book_volume.dart';
+import 'package:layout_example/pages/book_detail_page.dart';
 import 'package:layout_example/pages/google_books_page.dart';
 import 'package:layout_example/pages/more_widget_examples_page.dart';
 import 'package:layout_example/pages/nested_details_page.dart';
@@ -26,9 +27,15 @@ class LayoutsFormsExample extends StatelessWidget {
       routes: {
         '/': (context) => const OriginalExamplePage(),
         '/more-widget-examples': (context) => const MoreWidgetExamplesPage(),
-        '/chatbot': (context) => const ChatbotPage(),
         '/nested-navigation': (context) => const NestedNavigationPage(),
         '/google-books': (context) => const GoogleBooksPage(),
+        '/book-details': (context) {
+          final book = ModalRoute.of(context)!.settings.arguments;
+          if (book is BookVolume) {
+            return BookDetailPage(book: book);
+          }
+          throw Exception('Invalid arguments for /book-details');
+        },
         '/nested-details': (context) {
           final args = ModalRoute.of(context)!.settings.arguments
               as Map<String, String>?;

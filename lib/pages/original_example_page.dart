@@ -8,7 +8,10 @@ class OriginalExamplePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Layouts with Row and Column')),
+      appBar: AppBar(
+        title: const Text('Layouts with Row and Column'),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -41,14 +44,6 @@ class OriginalExamplePage extends StatelessWidget {
               },
               label: const Text('More Widget Examples'),
               icon: const Icon(Icons.arrow_forward),
-            ),
-            const SizedBox(height: 16),
-            ElevatedButton.icon(
-              onPressed: () {
-                unawaited(Navigator.pushNamed(context, '/chatbot'));
-              },
-              label: const Text('Network Call Example'),
-              icon: const Icon(Icons.chat),
             ),
             const SizedBox(height: 16),
             ElevatedButton.icon(

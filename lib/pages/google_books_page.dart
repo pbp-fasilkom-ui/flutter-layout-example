@@ -1,7 +1,10 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:layout_example/models/book_volume.dart';
+import 'package:layout_example/models/books_response.dart';
 
 class GoogleBooksPage extends StatefulWidget {
   const GoogleBooksPage({super.key});
@@ -12,7 +15,7 @@ class GoogleBooksPage extends StatefulWidget {
 
 class _GoogleBooksPageState extends State<GoogleBooksPage> {
   final TextEditingController _controller = TextEditingController();
-  List<dynamic> _books = [];
+  List<BookVolume> _books = [];
   bool _isLoading = false;
 
   Future<void> _searchBooks() async {
@@ -32,14 +35,13 @@ class _GoogleBooksPageState extends State<GoogleBooksPage> {
     if (response.statusCode == 200) {
       final data = json.decode(response.body) as Map<String, dynamic>;
       setState(() {
-        _books = data['items'] as List<dynamic>;
+        _books = BooksResponse.fromJson(data).books;
         _isLoading = false;
       });
     } else {
       setState(() {
         _isLoading = false;
       });
-      // Handle error
     }
   }
 
@@ -72,13 +74,18 @@ class _GoogleBooksPageState extends State<GoogleBooksPage> {
                 child: ListView.builder(
                   itemCount: _books.length,
                   itemBuilder: (context, index) {
-                    final book = _books[index] as Map<String, dynamic>;
-                    final volumeInfo =
-                        book['volumeInfo'] as Map<String, dynamic>;
-                    final authors = volumeInfo['authors'] as List<dynamic>?;
+                    final book = _books[index];
                     return ListTile(
-                      title: Text(volumeInfo['title'] as String),
-                      subtitle: Text(authors?.join(', ') ?? 'No authors'),
+                      title: Text(book.volumeInfo.title),
+                      subtitle: Text(
+                          book.volumeInfo.authors?.join(', ') ?? 'No authors'),
+                      onTap: () {
+                        unawaited(Navigator.pushNamed(
+                          context,
+                          '/book-details',
+                          arguments: book,
+                        ));
+                      },
                     );
                   },
                 ),
