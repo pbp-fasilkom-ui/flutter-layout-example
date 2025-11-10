@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class MoreWidgetExamplesPage extends StatelessWidget {
@@ -12,14 +14,30 @@ class MoreWidgetExamplesPage extends StatelessWidget {
       ),
       body: ListView(
         padding: const EdgeInsets.all(16),
-        children: const <Widget>[
-          ExampleSection(title: '1. Container', child: ContainerExample()),
-          ExampleSection(
+        children: <Widget>[
+          const ExampleSection(
+            title: '1. Container',
+            child: ContainerExample(),
+          ),
+          const ExampleSection(
             title: '2. Expanded & Flexible',
             child: ExpandedFlexibleExample(),
           ),
-          ExampleSection(title: '3. Stack', child: StackExample()),
-          ExampleSection(title: '4. GridView', child: GridViewExample()),
+          const ExampleSection(
+            title: '3. Stack',
+            child: StackExample(),
+          ),
+          const ExampleSection(
+            title: '4. GridView',
+            child: GridViewExample(),
+          ),
+            ExampleSection(
+                title: '5. Nested Navigation',
+                child: ElevatedButton(
+                    onPressed: () => unawaited(Navigator.pushNamed(context, '/nested-navigation')),
+                    child: const Text('Nested Navigation Example'),
+                ),
+            ),
         ],
       ),
     );
@@ -66,7 +84,7 @@ class ContainerExample extends StatelessWidget {
         border: Border.all(color: Colors.amber.shade600, width: 2),
       ),
       child: const Text(
-        // It's a literal string for demo.
+        // Literal string for demo
         // ignore: lines_longer_than_80_chars
         'This is a Container widget. It has margin, padding, and a coloured border.',
         textAlign: TextAlign.center,

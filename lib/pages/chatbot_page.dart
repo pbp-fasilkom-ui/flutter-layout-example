@@ -25,7 +25,7 @@ class _ChatbotPageState extends State<ChatbotPage> {
       _response = '';
     });
 
-    // TODO: Replace with your actual API key
+    // TODO: Replace with actual API key
     const apiKey = '';
     const url = 'https://api.mistral.ai/v1/chat/completions';
 
@@ -58,7 +58,7 @@ class _ChatbotPageState extends State<ChatbotPage> {
           _response = 'Error: ${response.reasonPhrase}';
         });
       }
-    } catch (e) {
+    } on Exception catch (e) {
       setState(() {
         _response = 'Error: $e';
       });
