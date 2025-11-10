@@ -47,7 +47,7 @@ class OriginalExamplePage extends StatelessWidget {
               onPressed: () {
                 unawaited(Navigator.pushNamed(context, '/chatbot'));
               },
-              label: const Text('AI Chatbot'),
+              label: const Text('Network Call Example'),
               icon: const Icon(Icons.chat),
             ),
           ],
