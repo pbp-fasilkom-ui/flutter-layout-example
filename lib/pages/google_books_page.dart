@@ -100,4 +100,10 @@ class _GoogleBooksPageState extends State<GoogleBooksPage> {
       ),
     );
   }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 }
