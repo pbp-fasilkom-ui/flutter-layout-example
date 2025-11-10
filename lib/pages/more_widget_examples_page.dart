@@ -14,30 +14,23 @@ class MoreWidgetExamplesPage extends StatelessWidget {
       ),
       body: ListView(
         padding: const EdgeInsets.all(16),
-        children: <Widget>[
-          const ExampleSection(
+        children: const <Widget>[
+          ExampleSection(
             title: '1. Container',
             child: ContainerExample(),
           ),
-          const ExampleSection(
+          ExampleSection(
             title: '2. Expanded & Flexible',
             child: ExpandedFlexibleExample(),
           ),
-          const ExampleSection(
+          ExampleSection(
             title: '3. Stack',
             child: StackExample(),
           ),
-          const ExampleSection(
+          ExampleSection(
             title: '4. GridView',
             child: GridViewExample(),
           ),
-            ExampleSection(
-                title: '5. Nested Navigation',
-                child: ElevatedButton(
-                    onPressed: () => unawaited(Navigator.pushNamed(context, '/nested-navigation')),
-                    child: const Text('Nested Navigation Example'),
-                ),
-            ),
         ],
       ),
     );

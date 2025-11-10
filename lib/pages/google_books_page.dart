@@ -50,6 +50,7 @@ class _GoogleBooksPageState extends State<GoogleBooksPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Google Books Search'),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),

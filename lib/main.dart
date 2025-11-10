@@ -3,8 +3,6 @@ import 'package:layout_example/models/book_volume.dart';
 import 'package:layout_example/pages/book_detail_page.dart';
 import 'package:layout_example/pages/google_books_page.dart';
 import 'package:layout_example/pages/more_widget_examples_page.dart';
-import 'package:layout_example/pages/nested_details_page.dart';
-import 'package:layout_example/pages/nested_navigation_page.dart';
 import 'package:layout_example/pages/original_example_page.dart';
 
 void main() {
@@ -27,7 +25,6 @@ class LayoutsFormsExample extends StatelessWidget {
       routes: {
         '/': (context) => const OriginalExamplePage(),
         '/more-widget-examples': (context) => const MoreWidgetExamplesPage(),
-        '/nested-navigation': (context) => const NestedNavigationPage(),
         '/google-books': (context) => const GoogleBooksPage(),
         '/book-details': (context) {
           final book = ModalRoute.of(context)!.settings.arguments;
@@ -35,11 +32,6 @@ class LayoutsFormsExample extends StatelessWidget {
             return BookDetailPage(book: book);
           }
           throw Exception('Invalid arguments for /book-details');
-        },
-        '/nested-details': (context) {
-          final args = ModalRoute.of(context)!.settings.arguments
-              as Map<String, String>?;
-          return NestedDetailsPage(id: args?['id'] ?? '');
         },
       },
     );
