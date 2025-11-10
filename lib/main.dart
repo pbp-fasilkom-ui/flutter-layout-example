@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:layout_example/pages/chatbot_page.dart';
+import 'package:layout_example/pages/google_books_page.dart';
 import 'package:layout_example/pages/more_widget_examples_page.dart';
 import 'package:layout_example/pages/nested_details_page.dart';
 import 'package:layout_example/pages/nested_navigation_page.dart';
@@ -27,6 +28,7 @@ class LayoutsFormsExample extends StatelessWidget {
         '/more-widget-examples': (context) => const MoreWidgetExamplesPage(),
         '/chatbot': (context) => const ChatbotPage(),
         '/nested-navigation': (context) => const NestedNavigationPage(),
+        '/google-books': (context) => const GoogleBooksPage(),
         '/nested-details': (context) {
           final args = ModalRoute.of(context)!.settings.arguments
               as Map<String, String>?;

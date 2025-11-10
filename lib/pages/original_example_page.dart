@@ -50,6 +50,14 @@ class OriginalExamplePage extends StatelessWidget {
               label: const Text('Network Call Example'),
               icon: const Icon(Icons.chat),
             ),
+            const SizedBox(height: 16),
+            ElevatedButton.icon(
+              onPressed: () {
+                unawaited(Navigator.pushNamed(context, '/google-books'));
+              },
+              label: const Text('Google Books API Example'),
+              icon: const Icon(Icons.book),
+            ),
           ],
         ),
       ),
