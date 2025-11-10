@@ -29,7 +29,8 @@ class _GoogleBooksPageState extends State<GoogleBooksPage> {
 
     final response = await http.get(
       Uri.parse(
-          'https://www.googleapis.com/books/v1/volumes?q=${_controller.text}'),
+        'https://www.googleapis.com/books/v1/volumes?q=${_controller.text}',
+      ),
     );
 
     if (response.statusCode == 200) {
@@ -79,13 +80,16 @@ class _GoogleBooksPageState extends State<GoogleBooksPage> {
                     return ListTile(
                       title: Text(book.volumeInfo.title),
                       subtitle: Text(
-                          book.volumeInfo.authors?.join(', ') ?? 'No authors'),
+                        book.volumeInfo.authors?.join(', ') ?? 'No authors',
+                      ),
                       onTap: () {
-                        unawaited(Navigator.pushNamed(
-                          context,
-                          '/book-details',
-                          arguments: book,
-                        ));
+                        unawaited(
+                          Navigator.pushNamed(
+                            context,
+                            '/book-details',
+                            arguments: book,
+                          ),
+                        );
                       },
                     );
                   },

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:layout_example/models/book_volume.dart';
 
 class BookDetailPage extends StatelessWidget {
-
   const BookDetailPage({required this.book, super.key});
   final BookVolume book;
 
