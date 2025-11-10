@@ -35,10 +35,20 @@ class OriginalExamplePage extends StatelessWidget {
             const SizedBox(height: 32),
             ElevatedButton.icon(
               onPressed: () {
-                unawaited(Navigator.pushNamed(context, '/more-widget-examples'));
+                unawaited(
+                  Navigator.pushNamed(context, '/more-widget-examples'),
+                );
               },
               label: const Text('More Widget Examples'),
               icon: const Icon(Icons.arrow_forward),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton.icon(
+              onPressed: () {
+                unawaited(Navigator.pushNamed(context, '/chatbot'));
+              },
+              label: const Text('AI Chatbot'),
+              icon: const Icon(Icons.chat),
             ),
           ],
         ),

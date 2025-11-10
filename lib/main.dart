@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:layout_example/pages/chatbot_page.dart';
 import 'package:layout_example/pages/more_widget_examples_page.dart';
 import 'package:layout_example/pages/original_example_page.dart';
 
@@ -22,6 +23,7 @@ class LayoutsFormsExample extends StatelessWidget {
       routes: {
         '/': (context) => const OriginalExamplePage(),
         '/more-widget-examples': (context) => const MoreWidgetExamplesPage(),
+        '/chatbot': (context) => const ChatbotPage(),
       },
     );
   }

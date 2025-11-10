@@ -27,7 +27,6 @@ class MoreWidgetExamplesPage extends StatelessWidget {
 }
 
 class ExampleSection extends StatelessWidget {
-
   const ExampleSection({required this.title, required this.child, super.key});
   final String title;
   final Widget child;
